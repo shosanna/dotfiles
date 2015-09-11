@@ -1,0 +1,16 @@
+# ~/.tmuxinator/czechicoach.yml
+
+name: czechicoach
+root: ~/Programming/czechicoach-ruby
+
+
+windows:
+  - editor: vim
+  - console:
+      layout: main-vertical
+      panes:
+        -
+        - rails c
+  - server: bundle exec rails s
+  - logs: tail -f log/development.log
+  - database: psql czechicoach_development
