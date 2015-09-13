@@ -164,3 +164,5 @@ alias pi='sudo pacman -S'
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
+
+alias d='gd'

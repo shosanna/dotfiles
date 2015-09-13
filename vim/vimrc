@@ -1,43 +1,41 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-Plugin 'gmarik/Vundle.vim'   " required
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'chriskempson/base16-vim'
-Plugin 'wincent/Command-T'
-Plugin 'dag/vim2hs'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'benmills/vimux'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'slim-template/vim-slim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'headerguard'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'vim-ruby/vim-ruby'
+Plug 'chriskempson/base16-vim'
+Plug 'wincent/Command-T'
+Plug 'dag/vim2hs'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+Plug 'thoughtbot/vim-rspec'
+Plug 'slim-template/vim-slim'
+Plug 'tomtom/tcomment_vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'rhysd/vim-clang-format'
+Plug 'headerguard'
 
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-dispatch'
-Plugin 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-dispatch'
+Plug 'elixir-lang/vim-elixir'
 
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
 
 set nofoldenable
 
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable " Turn on syntax highlighting
