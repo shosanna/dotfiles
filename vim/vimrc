@@ -31,6 +31,7 @@ Plug 'elixir-lang/vim-elixir'
 
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
