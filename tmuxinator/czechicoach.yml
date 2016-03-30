@@ -3,7 +3,6 @@
 name: czechicoach
 root: ~/Programming/czechicoach-ruby
 
-
 windows:
   - editor: vim
   - console:
