@@ -5,11 +5,12 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 Plug 'vim-ruby/vim-ruby'
 Plug 'chriskempson/base16-vim'
-Plug 'wincent/Command-T'
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 Plug 'dag/vim2hs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
@@ -17,10 +18,17 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'slim-template/vim-slim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Valloric/YouCompleteMe'
+
 Plug 'rhysd/vim-clang-format'
 Plug 'headerguard'
-Plug 'derekwyatt/vim-scala'
+Plug 'sjl/gundo.vim'
 
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-bundler'
@@ -28,12 +36,16 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-dispatch'
-Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'leafgarland/typescript-vim'
+
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
@@ -43,6 +55,8 @@ Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
+" Plug 'mattn/emmet-vim.git'
+Plug 'rstacruz/sparkup'
 
 call plug#end()
 
@@ -60,9 +74,12 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set hidden
 
 " Note that the dot is a unicode character
-set list listchars=tab:\ \ ,trail:·
+set list lcs=trail:·,tab:»·,trail:·
+
+" set list listchars=tab:\ \ ,trail:·
 
 set hlsearch
 set incsearch
@@ -70,11 +87,12 @@ set ignorecase
 set smartcase
 
 let mapleader=","
+set backupcopy=yes
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,node_modules,tmp,project/target,target,tags,CMakeFiles,bower_components,dist,_darcs,vcr,app/assets/images,*.dSYM,*.pyc,_build,deps,rel
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,node_modules,tmp,project/target,target,tags,CMakeFiles,bower_components,dist,_darcs,vcr,app/assets/images,*.dSYM,*.pyc,_build,deps,rel,priv
 
 set t_Co=256
 set bg=dark
@@ -97,6 +115,11 @@ if has('persistent_undo')
   set undodir=~/.vimundo
 endif
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -117,39 +140,40 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <leader><leader> <c-^>
 
 " Open files with <leader>f
-noremap <leader>f  :CommandTFlush<cr>\|:CommandT ./<CR>
+noremap <leader>f  :FZF ./<CR>
 
 " Open files, limited to the directory of the current files, with <leader>gf
-noremap <leader>F  :CommandTFlush<cr>\|:CommandT %%<CR>
-noremap <leader>gf :CommandTFlush<cr>\|:CommandT %%<CR>
+noremap <leader>F  :FZF %%<CR>
+noremap <leader>gf :FZF %%<CR>
 
 " Rails specific keystrokes
 noremap <leader>gr :topleft :split config/routes.rb<CR>
 noremap <leader>gg :topleft 50 :split Gemfile<CR>
 
-noremap <leader>gv :CommandTFlush<cr>\|:CommandT ./app/views<cr>
-noremap <leader>gc :CommandTFlush<cr>\|:CommandT ./app/controllers<cr>
-noremap <leader>gm :CommandTFlush<cr>\|:CommandT ./app/models<cr>
-noremap <leader>gs :CommandTFlush<cr>\|:CommandT ./app/services<cr>
-noremap <leader>gh :CommandTFlush<cr>\|:CommandT ./app/helpers<cr>
-noremap <leader>gd :CommandTFlush<cr>\|:CommandT ./app/decorators<cr>
-noremap <leader>gl :CommandTFlush<cr>\|:CommandT ./lib<cr>
-noremap <leader>gt :CommandTFlush<cr>\|:CommandT ./spec<cr>
-noremap <leader>gk :CommandTFlush<cr>\|:CommandT ./app/assets/stylesheets<cr>
-noremap <leader>gj :CommandTFlush<cr>\|:CommandT ./app/assets/javascripts<cr>
-noremap <leader>ga :CommandTFlush<cr>\|:CommandT ./app/assets/javascripts/templates<cr>
-noremap <leader>ge :CommandTFlush<cr>\|:CommandT ./app/cells<cr>
+noremap <leader>gv :FZF ./app/views<cr>
+noremap <leader>gc :FZF ./app/controllers<cr>
+noremap <leader>gm :FZF ./app/models<cr>
+noremap <leader>gs :FZF ./app/services<cr>
+noremap <leader>gh :FZF ./app/helpers<cr>
+noremap <leader>gd :FZF ./app/decorators<cr>
+noremap <leader>gl :FZF ./lib<cr>
+noremap <leader>gt :FZF ./spec<cr>
+noremap <leader>gk :FZF ./app/assets/stylesheets<cr>
+noremap <leader>gj :FZF ./app/assets/javascripts<cr>
+noremap <leader>ga :FZF ./app/assets/javascripts/templates<cr>
+noremap <leader>ge :FZF ./app/cells<cr>
 
-noremap <leader>da :CommandTFlush<cr>\|:CommandT app/assets/javascripts/templates<cr>
-noremap <leader>dv :CommandTFlush<cr>\|:CommandT app/assets/javascripts/views<cr>
-noremap <leader>dc :CommandTFlush<cr>\|:CommandT app/assets/javascripts/controllers<cr>
-noremap <leader>dr :CommandTFlush<cr>\|:CommandT app/assets/javascripts/routes<cr>
-noremap <leader>dm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/models<cr>
+noremap <leader>da :FZF app/assets/javascripts/templates<cr>
+noremap <leader>dv :FZF app/assets/javascripts/views<cr>
+noremap <leader>dc :FZF app/assets/javascripts/controllers<cr>
+noremap <leader>dr :FZF app/assets/javascripts/routes<cr>
+noremap <leader>dm :FZF app/assets/javascripts/models<cr>
 
 noremap <leader>ct :!ctags --extra=+f -R *<CR>
 set tags+=gems.tags
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
+nnoremap <leader>r :!rubocop %<cr>
 
 " Vim Rspec bindings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -159,6 +183,17 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 map <Leader>w :call VimuxRunCommand(input("prikaz> "))<CR>
 map <Leader>q :call VimuxRunCommand(substitute(getline(line(".")),"^\\s*","",""))<CR>
+
+aug various_file_types
+  au!
+  " Rakefile, Vagrantfile and Gemfile are Ruby
+  au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,config.ru} set ft=ruby
+
+  au BufNewFile,BufRead *.json set filetype=javascript
+  au BufNewFile,BufRead *.slime set filetype=slim
+  au BufNewFile,BufRead *.conf set filetype=conf
+  au BufNewFile,BufRead *vimrc set filetype=vim
+aug END
 
 set pastetoggle=<F5>
 
@@ -185,3 +220,8 @@ autocmd VimResized * :wincmd =
 let g:rspec_command = "VimuxRunCommand 'rspec {spec}'"
 
 command W w
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
