@@ -43,6 +43,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'leafgarland/typescript-vim'
 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -153,27 +155,20 @@ noremap <leader>gg :topleft 50 :split Gemfile<CR>
 noremap <leader>gv :FZF ./app/views<cr>
 noremap <leader>gc :FZF ./app/controllers<cr>
 noremap <leader>gm :FZF ./app/models<cr>
-noremap <leader>gs :FZF ./app/services<cr>
 noremap <leader>gh :FZF ./app/helpers<cr>
-noremap <leader>gd :FZF ./app/decorators<cr>
 noremap <leader>gl :FZF ./lib<cr>
 noremap <leader>gt :FZF ./spec<cr>
 noremap <leader>gk :FZF ./app/assets/stylesheets<cr>
 noremap <leader>gj :FZF ./app/assets/javascripts<cr>
-noremap <leader>ga :FZF ./app/assets/javascripts/templates<cr>
-noremap <leader>ge :FZF ./app/cells<cr>
-
-noremap <leader>da :FZF app/assets/javascripts/templates<cr>
-noremap <leader>dv :FZF app/assets/javascripts/views<cr>
-noremap <leader>dc :FZF app/assets/javascripts/controllers<cr>
-noremap <leader>dr :FZF app/assets/javascripts/routes<cr>
-noremap <leader>dm :FZF app/assets/javascripts/models<cr>
 
 noremap <leader>ct :!ctags --extra=+f -R *<CR>
 set tags+=gems.tags
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
 nnoremap <leader>r :!rubocop %<cr>
+
+" Distraction free plugin toggle
+nnoremap <leader>d :Goyo<CR>
 
 " Vim Rspec bindings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -203,6 +198,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
 autocmd FileType h,cc,c,cpp nnoremap <buffer><C-e> :<C-u>ClangFormat<CR>
 autocmd FileType h,cc,c,cpp nnoremap <buffer><leader>ha :HeaderguardAdd<CR>
 autocmd FileType h,cc,c,cpp vnoremap <buffer><C-e> :ClangFormat<CR>
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 nnoremap <Up> <C-w>5-
 nnoremap <Down> <C-w>5+
