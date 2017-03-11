@@ -85,7 +85,7 @@ alias prg="cd $HOME/Dropbox/nufinka/Dokumenty/Programiky"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export EDITOR="vim"
@@ -150,11 +150,6 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gup='git smart-pull'
-gupstation() {
-  gup
-  gf production
-  gf staging
-}
 alias graf='git remote add $argv[1] $argv[2] && gf $argv[1]'
 alias gt='git difftool'
 
@@ -168,9 +163,24 @@ alias b="bundle"
 alias r="rails"
 alias rdms="rake db:drop db:create db:migrate db:seed"
 
+alias pi="sudo pacman -S"
+alias pq="pacman -Ssq"
+alias pe="pacman -Ss"
+
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 base16_mocha
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function reload() {
+  source ~/.zshrc
+}
+
+alias re="reload"
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
