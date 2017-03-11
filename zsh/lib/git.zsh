@@ -144,6 +144,14 @@ function git_compare_version() {
   echo 0
 }
 
+function dotfiles_dirty() {
+  DOTFILES_DIRTY='!dot!'
+  cd "$HOME/.dotfiles"
+  if [[ $(git status --porcelain | wc -l) -ne 0 ]]; then
+    echo "$DOTFILES_DIRTY"
+  fi
+}
+
 #this is unlikely to change so make it all statically assigned
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
