@@ -184,3 +184,14 @@ export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
       sed s/^..//) 2> /dev/null'
+
+function pgdisc() {
+  echo "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = current_database() AND pid <> pg_backend_pid();" | psql $1
+}
+
+alias m="mix"
+alias mps="mix phoenix.server"
+alias im="iex -S mix"
+alias is="iex -S mix"
+alias isp="iex -S mix phoenix.server"
+alias mt="mix test"
