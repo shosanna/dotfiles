@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while :; do
+  feh --no-fehbg --randomize --bg-scale ~/Pictures/*
+  sleep 60
+done
