@@ -189,6 +189,38 @@ function pgdisc() {
   echo "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = current_database() AND pid <> pg_backend_pid();" | psql $1
 }
 
+
+function rbenv-update() {
+  RBENV="$HOME/.rbenv"
+  RUBY_BUILD="$RBENV/plugins/ruby-build"
+
+  if [ -d "$RBENV" ]; then
+    cd ~/.rbenv
+    git pull
+
+    if [ -d "$RUBY_BUILD" ]; then
+      cd "$RUBY_BUILD"
+      git pull
+    else
+      git clone https://github.com/rbenv/ruby-build.git "$RUBY_BUILD"
+    fi
+  else
+    git clone https://github.com/rbenv/rbenv.git "$RBENV"
+    git clone https://github.com/rbenv/ruby-build.git "$RUBY_BUILD"
+  fi
+}
+
+function dot-update() {
+  cd "$HOME/.dotfiles"
+  rbenv-update
+  git smart-pull
+  reload
+}
+
+function dot() {
+  cd "$HOME/.dotfiles"
+}
+
 alias m="mix"
 alias mps="mix phoenix.server"
 alias im="iex -S mix"
