@@ -88,6 +88,8 @@ alias prg="cd $HOME/Dropbox/nufinka/Dokumenty/Programiky"
 export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export PATH="$HOME/Programming/go/bin:$PATH"
+
 export EDITOR="vim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
@@ -227,3 +229,16 @@ alias im="iex -S mix"
 alias is="iex -S mix"
 alias isp="iex -S mix phoenix.server"
 alias mt="mix test"
+
+export PATH="$HOME/.anaconda2/bin:$PATH"
+source ~/.dotfiles/.tmuxinator.zsh
+
+alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
+
+alias rake="command bundle exec rake"
+alias rails="command bundle exec rails"
+alias rspec="command bundle exec rspec"
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+source activate p35

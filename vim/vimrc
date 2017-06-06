@@ -10,6 +10,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kchmck/vim-coffee-script'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -54,6 +55,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'leafgarland/typescript-vim'
 
 Plug 'junegunn/vim-easy-align'
+Plug 'vim-scripts/Align'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -77,11 +79,26 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Plug 'mattn/emmet-vim.git'
 Plug 'rstacruz/sparkup'
 
+Plug 'fatih/vim-go'
+
 call plug#end()
 
 set nofoldenable
 
 filetype plugin indent on    " required
+
+" Go config
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
+let g:go_list_type = "quickfix"
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -177,27 +194,30 @@ nnoremap <C-l> <C-w><C-l>
 " Switching between active files in a buffer.
 nnoremap <leader><leader> <c-^>
 
-" Open files with <leader>f
-noremap <leader>f  :FZF ./<CR>
 
+" Open files with <leader>f
+noremap <leader>f  :Files ./<CR>
 " Open files, limited to the directory of the current files, with <leader>gf
 noremap <leader>F  :FZF %%<CR>
-noremap <leader>gf :FZF %%<CR>
+noremap <leader>gf :GFiles ./<CR>
+noremap <leader>gd :GFiles?<cr>
 
 " Rails specific keystrokes
 noremap <leader>gr :topleft :split config/routes.rb<CR>
 noremap <leader>gg :topleft 50 :split Gemfile<CR>
 
-noremap <leader>gv :FZF ./app/views<cr>
-noremap <leader>gc :FZF ./app/controllers<cr>
-noremap <leader>gm :FZF ./app/models<cr>
-noremap <leader>gh :FZF ./app/helpers<cr>
-noremap <leader>gl :FZF ./lib<cr>
-noremap <leader>gt :FZF ./spec<cr>
-noremap <leader>gk :FZF ./app/assets/stylesheets<cr>
-noremap <leader>gj :FZF ./app/assets/javascripts<cr>
+noremap <leader>gv :FZF app/views<cr>
+noremap <leader>gc :FZF app/controllers<cr>
+noremap <leader>gm :FZF app/models<cr>
+noremap <leader>gs :FZF app/services<cr>
+noremap <leader>gh :FZF app/helpers<cr>
+noremap <leader>gl :FZF lib<cr>
+noremap <leader>gk :FZF app/assets/stylesheets<cr>
+noremap <leader>gj :FZF app/assets/javascripts<cr>
 
-noremap <leader>ct :!ctags --extra=+f -R *<CR>
+
+noremap <leader>ct :!ctags --extra=+f -R --exclude=bower_components --exclude=node_modules --exclude=tmp $(bundle list --paths) *<CR>
+
 set tags+=gems.tags
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
@@ -205,6 +225,9 @@ nnoremap <leader>r :!rubocop %<cr>
 
 " Distraction free plugin toggle
 nnoremap <leader>d :Goyo<CR>
+
+" Buffers!
+nnoremap <leader>b :Buffers<CR>
 
 " Vim Rspec bindings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -261,3 +284,5 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+vmap <leader>css :sort<bar>:Align :\zs<CR>
