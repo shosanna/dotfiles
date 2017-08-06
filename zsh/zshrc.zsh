@@ -242,3 +242,5 @@ alias rspec="command bundle exec rspec"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 source activate p35
+
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"

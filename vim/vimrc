@@ -76,6 +76,9 @@ Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 " Plug 'mattn/emmet-vim.git'
 Plug 'rstacruz/sparkup'
 
