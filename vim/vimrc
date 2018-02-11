@@ -25,12 +25,13 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'slim-template/vim-slim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
 Plug 'rhysd/vim-clang-format'
 Plug 'headerguard'
 Plug 'sjl/gundo.vim'
 
+" Javascript and Typescript
 Plug 'Shougo/vimproc.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -52,17 +53,12 @@ Plug 'fatih/vim-go'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'leafgarland/typescript-vim'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-scripts/Align'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
@@ -79,7 +75,6 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Rust
 Plug 'rust-lang/rust.vim'
 
-" Plug 'mattn/emmet-vim.git'
 Plug 'rstacruz/sparkup'
 
 Plug 'fatih/vim-go'
@@ -99,24 +94,25 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
 let g:go_list_type = "quickfix"
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
+" let g:syntastic_cpp_compiler = 'clang++'
+" let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
 
 " Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_cpp_check_header = 0
+" let g:syntastic_enable_signs=1
+" let g:syntastic_cpp_check_header = 0
 
 let g:tsuquyomi_disable_quickfix = 1
 let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_use_vimproc=1
 
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+" let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -218,7 +214,6 @@ noremap <leader>gl :FZF lib<cr>
 noremap <leader>gk :FZF app/assets/stylesheets<cr>
 noremap <leader>gj :FZF app/assets/javascripts<cr>
 
-
 noremap <leader>ct :!ctags --extra=+f -R --exclude=bower_components --exclude=node_modules --exclude=tmp $(bundle list --paths) *<CR>
 
 set tags+=gems.tags
@@ -254,8 +249,8 @@ aug END
 
 set pastetoggle=<F5>
 
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
+" let g:syntastic_cpp_compiler = 'clang++'
+" let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
 
 autocmd FileType h,cc,c,cpp nnoremap <buffer><C-e> :<C-u>ClangFormat<CR>
 autocmd FileType h,cc,c,cpp nnoremap <buffer><leader>ha :HeaderguardAdd<CR>

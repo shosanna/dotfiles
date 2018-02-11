@@ -5,7 +5,7 @@ export ZSH="$HOME/.dotfiles/zsh"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="nufik"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -81,7 +81,7 @@ alias zshconfig="vim $HOME/.zshrc"
 alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
-alias prg="cd $HOME/Dropbox/nufinka/Dokumenty/Programiky"
+alias prg="cd $HOME/Programming"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -240,7 +240,5 @@ alias rails="command bundle exec rails"
 alias rspec="command bundle exec rspec"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
-source activate p35
 
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
