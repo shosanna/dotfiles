@@ -5,7 +5,7 @@ export ZSH="$HOME/.dotfiles/zsh"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="nufik"
+ZSH_THEME="mh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -172,7 +172,7 @@ alias pe="pacman -Ss"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_unikitty-dark
+base16_xcode-dusk
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

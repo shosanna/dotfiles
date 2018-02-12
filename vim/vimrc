@@ -1,86 +1,12 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let mapleader=","
+runtime plugins.vim
+runtime mappings.vim
+
 set laststatus=2
 let g:airline_powerline_fonts = 1
-call plug#begin('~/.vim/bundle')
-
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'kchmck/vim-coffee-script'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'dag/vim2hs'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'thoughtbot/vim-rspec'
-Plug 'slim-template/vim-slim'
-Plug 'tomtom/tcomment_vim'
-Plug 'Valloric/YouCompleteMe'
-" Plug 'vim-syntastic/syntastic'
-
-Plug 'rhysd/vim-clang-format'
-Plug 'headerguard'
-Plug 'sjl/gundo.vim'
-
-" Javascript and Typescript
-Plug 'Shougo/vimproc.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-
-Plug 'janko-m/vim-test'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-dispatch'
-Plug 'fatih/vim-go'
-
-Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdtree'
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-Plug 'junegunn/vim-easy-align'
-Plug 'vim-scripts/Align'
-
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
-" Elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'enomsg/vim-haskellConcealPlus', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
-
-" Rust
-Plug 'rust-lang/rust.vim'
-
-Plug 'rstacruz/sparkup'
-
-Plug 'fatih/vim-go'
-
-call plug#end()
-
 set nofoldenable
 
 filetype plugin indent on    " required
@@ -94,35 +20,15 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
 let g:go_list_type = "quickfix"
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
-
-" Enable syntastic syntax checking
-" let g:syntastic_enable_signs=1
-" let g:syntastic_cpp_check_header = 0
-
 let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_use_vimproc=1
-
-" let g:syntastic_typescript_checkers = ['tsuquyomi']
-
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 syntax enable " Turn on syntax highlighting
 set history=1000 " By default Vim saves your last 8 commands
 set number " Set the line numbers
 set encoding=utf-8
-
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -132,15 +38,11 @@ set hidden
 
 " Note that the dot is a unicode character
 set list lcs=trail:·,tab:»·,trail:·
-
-" set list listchars=tab:\ \ ,trail:·
-
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-let mapleader=","
 set backupcopy=yes
 
 set backupdir=~/.vim/backup
@@ -169,78 +71,18 @@ if has('persistent_undo')
   set undodir=~/.vimundo
 endif
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 " Show (partial) command in the status line
 set showcmd
-
 set cursorline
-
-cnoremap %% <C-R>=expand('%:h').'/'<CR>
-
-" For easier navigation between windows
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-l> <C-w><C-l>
-
-" Switching between active files in a buffer.
-nnoremap <leader><leader> <c-^>
-
-
-" Open files with <leader>f
-noremap <leader>f  :Files ./<CR>
-" Open files, limited to the directory of the current files, with <leader>gf
-noremap <leader>F  :FZF %%<CR>
-noremap <leader>gf :GFiles ./<CR>
-noremap <leader>gd :GFiles?<cr>
-
-" Rails specific keystrokes
-noremap <leader>gr :topleft :split config/routes.rb<CR>
-noremap <leader>gg :topleft 50 :split Gemfile<CR>
-
-noremap <leader>gv :FZF app/views<cr>
-noremap <leader>gc :FZF app/controllers<cr>
-noremap <leader>gm :FZF app/models<cr>
-noremap <leader>gs :FZF app/services<cr>
-noremap <leader>gh :FZF app/helpers<cr>
-noremap <leader>gl :FZF lib<cr>
-noremap <leader>gk :FZF app/assets/stylesheets<cr>
-noremap <leader>gj :FZF app/assets/javascripts<cr>
-
-noremap <leader>ct :!ctags --extra=+f -R --exclude=bower_components --exclude=node_modules --exclude=tmp $(bundle list --paths) *<CR>
-
 set tags+=gems.tags
-nnoremap <CR> :nohlsearch<CR>/<BS>
-
-nnoremap <leader>r :!rubocop %<cr>
-
-" Distraction free plugin toggle
-nnoremap <leader>d :Goyo<CR>
-
-" Buffers!
-nnoremap <leader>b :Buffers<CR>
-
-" Vim Rspec bindings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>T :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-map <Leader>w :call VimuxRunCommand(input("prikaz> "))<CR>
-map <Leader>q :call VimuxRunCommand(substitute(getline(line(".")),"^\\s*","",""))<CR>
 
 aug various_file_types
   au!
   " Rakefile, Vagrantfile and Gemfile are Ruby
   au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,config.ru} set ft=ruby
-
   au BufNewFile,BufRead *.json set filetype=javascript
   au BufNewFile,BufRead *.slime set filetype=slim
   au BufNewFile,BufRead *.conf set filetype=conf
@@ -249,22 +91,8 @@ aug END
 
 set pastetoggle=<F5>
 
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++1y -stdlib=libc++'
-
-autocmd FileType h,cc,c,cpp nnoremap <buffer><C-e> :<C-u>ClangFormat<CR>
-autocmd FileType h,cc,c,cpp nnoremap <buffer><leader>ha :HeaderguardAdd<CR>
-autocmd FileType h,cc,c,cpp vnoremap <buffer><C-e> :ClangFormat<CR>
-
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-nnoremap <Up> <C-w>5-
-nnoremap <Down> <C-w>5+
-nnoremap <Left> <C-w>5<
-nnoremap <Right> <C-w>5>
-
-nmap <leader>e :VimuxRunCommand("make")<cr>
 
 set mouse=a
 set exrc
@@ -282,5 +110,3 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-
-vmap <leader>css :sort<bar>:Align :\zs<CR>
