@@ -82,6 +82,7 @@ alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
 alias prg="cd $HOME/Programming"
+alias pis="pipenv shell"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -169,10 +170,12 @@ alias pi="sudo pacman -S"
 alias pq="pacman -Ssq"
 alias pe="pacman -Ss"
 
+alias ra="ranger"
+
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_xcode-dusk
+base16_unikitty-dark
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -230,7 +233,6 @@ alias is="iex -S mix"
 alias isp="iex -S mix phoenix.server"
 alias mt="mix test"
 
-export PATH="$HOME/.anaconda2/bin:$PATH"
 source ~/.dotfiles/.tmuxinator.zsh
 
 alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
@@ -242,3 +244,15 @@ alias rspec="command bundle exec rspec"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. /Users/arnoldov/mrk-proxy/mrk-proxy
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
