@@ -1,3 +1,13 @@
+# zmodload zsh/datetime
+# setopt PROMPT_SUBST
+# PS4='+$EPOCHREALTIME %N:%i> '
+#
+# logfile=$(mktemp zsh_profile.XXXXXXXX)
+# echo "Logging to $logfile"
+# exec 3>&2 2>$logfile
+#
+# setopt XTRACE
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.dotfiles/zsh"
 
@@ -90,8 +100,11 @@ export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export PATH="$HOME/Programming/go/bin:$PATH"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
-export EDITOR="vim"
+alias vim="nvim"
+alias vi="nvim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
@@ -106,15 +119,11 @@ alias ga='git add'
 alias gap='ga -p'
 alias gau='git add -u'
 alias gbr='git branch -v'
-alias gb='gbr'
-alias gbt='gbrt'
 alias gc="git commit -v"
 alias gca='git commit -v -a'
 alias gcam='gca --amend'
 alias gch='git cherry-pick'
-alias gcm='git commit -v --amend'
 alias gco='git checkout'
-alias gcop='gco -p'
 alias gd='git diff -M'
 alias gd.='git diff -M --color-words="."'
 alias gdc='git diff --cached -M'
@@ -140,7 +149,6 @@ gls() {
 alias gm='git merge --no-ff'
 alias gmf='git merge --ff-only'
 alias gp='git push'
-alias gpt='gp --tags'
 alias gr='git reset'
 alias grb='git rebase -p'
 alias grbc='git rebase --continue'
@@ -153,14 +161,9 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gup='git smart-pull'
-alias graf='git remote add $argv[1] $argv[2] && gf $argv[1]'
-alias gt='git difftool'
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
-
-alias d='gd'
-alias st="foreman start -f Procfile.fullDev -p 3000"
 
 alias b="bundle"
 alias r="rails"
@@ -171,6 +174,7 @@ alias pq="pacman -Ssq"
 alias pe="pacman -Ss"
 
 alias ra="ranger"
+alias rah="ranger --cmd='set show_hidden=true'"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -226,13 +230,6 @@ function dot() {
   cd "$HOME/.dotfiles"
 }
 
-alias m="mix"
-alias mps="mix phoenix.server"
-alias im="iex -S mix"
-alias is="iex -S mix"
-alias isp="iex -S mix phoenix.server"
-alias mt="mix test"
-
 source ~/.dotfiles/.tmuxinator.zsh
 
 alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
@@ -248,6 +245,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 . /Users/arnoldov/mrk-proxy/mrk-proxy
 export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
@@ -256,3 +254,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+eval "$(command pyenv virtualenv-init -)"
+
+# unsetopt XTRACE
+# exec 2>&3 3>&-
+
+alias dirt="docker run -it --rm"
