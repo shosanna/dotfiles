@@ -238,6 +238,9 @@ alias rake="command bundle exec rake"
 alias rails="command bundle exec rails"
 alias rspec="command bundle exec rspec"
 
+alias mpo="mrk-proxy-on"
+alias mpf="mrk-proxy-off"
+
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
