@@ -5,9 +5,11 @@ let mapleader=","
 runtime plugins.vim
 runtime mappings.vim
 
-let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
-let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+" let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+" let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 
+let g:python_host_prog = "python2"
+let g:python3_host_prog = "python"
 
 set laststatus=2
 let g:airline_powerline_fonts = 1

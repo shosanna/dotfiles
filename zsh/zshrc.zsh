@@ -97,7 +97,10 @@ alias pis="pipenv shell"
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+if command -v rbenv; then
+  eval "$(rbenv init -)"
+fi
 
 export PATH="$HOME/Programming/go/bin:$PATH"
 export EDITOR="nvim"
@@ -249,15 +252,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-. /Users/arnoldov/mrk-proxy/mrk-proxy
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
+  . /Users/arnoldov/mrk-proxy/mrk-proxy
+fi
+
+if command -v brew; then
+  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  eval "$(command pyenv virtualenv-init -)"
 fi
-eval "$(command pyenv virtualenv-init -)"
 
 # unsetopt XTRACE
 # exec 2>&3 3>&-
