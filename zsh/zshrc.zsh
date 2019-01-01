@@ -179,10 +179,11 @@ alias pe="pacman -Ss"
 alias ra="ranger"
 alias rah="ranger --cmd='set show_hidden=true'"
 
-BASE16_SHELL=$HOME/.config/base16-shell/
+export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 base16_unikitty-dark
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -272,3 +273,7 @@ fi
 # exec 2>&3 3>&-
 
 alias dirt="docker run -it --rm"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
