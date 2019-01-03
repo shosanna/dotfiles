@@ -14,7 +14,6 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
-
 ;; Set the theme
 (load-theme 'farmhouse-dark)
 
@@ -28,6 +27,24 @@
 ;; Set undo to better key
 (define-key global-map "\C-x\C-u" 'undo)
 
+(defun webportal ()
+  (interactive)
+  (let ((default-directory "~/Programming/MSD/smart/smart-webportal/"))
+    (setq bufname "Web Portal")
+    (ansi-term "/bin/zsh" bufname)
+    (process-send-string (concat "*" bufname "*" ) "~/.nvm/versions/node/v10.8.0/bin/npm run start\n")
+    )
+  )
+
+(defun smart-server ()
+  (interactive)
+  (let ((default-directory "~/Programming/MSD/smart/smart-backend/"))
+    (setq bufname "Web Portal")
+    (ansi-term "/bin/zsh" bufname)
+    (process-send-string (concat "*" bufname "*" ) "~/.nvm/versions/node/v10.8.0/bin/npm run start\n")
+    )
+  )
+ 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
