@@ -12,6 +12,7 @@ mkdir -p "$HOME/.config/nvim"
 ln -nsf "$HOME/.dotfiles/vim"           "$HOME/.vim"
 ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"
 ln -nsf "$HOME/.dotfiles/vim/init.vim"  "$HOME/.config/nvim/init.vim"
+ln -nsf "$HOME/.dotfiles/emacs"           "$HOME/.emacs"
 # ln -nsf "$HOME/.dotfiles/mbsyncrc"      "$HOME/.mbsyncrc"
 # ln -nsf "$HOME/.dotfiles/spacemacs.el"  "$HOME/.spacemacs"
 
