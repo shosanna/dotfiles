@@ -176,8 +176,7 @@ alias pi="sudo pacman -S"
 alias pq="pacman -Ssq"
 alias pe="pacman -Ss"
 
-alias ra="ranger"
-alias rah="ranger --cmd='set show_hidden=true'"
+alias ra="ranger --cmd='set show_hidden=true'"
 
 export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
