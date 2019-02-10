@@ -98,16 +98,15 @@ alias pis="pipenv shell"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
 
-if command -v rbenv; then
-  eval "$(rbenv init -)"
-fi
+# if command -v rbenv; then
+#   eval "$(rbenv init -)"
+# fi
 
 export PATH="$HOME/Programming/go/bin:$PATH"
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 
-alias vim="nvim"
-alias vi="nvim"
+alias vi="vim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
@@ -265,7 +264,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  eval "$(command pyenv virtualenv-init -)"
+  # eval "$(command pyenv virtualenv-init -)"
 fi
 
 # unsetopt XTRACE

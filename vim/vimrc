@@ -5,6 +5,16 @@ let mapleader=","
 runtime plugins.vim
 runtime mappings.vim
 
+" C-k invoke digraphs inserting
+digraphs sr 128156   " 💜
+digraphs CA 769      "  ́
+
+" turn on czech by f7, off by f8
+nnoremap <F7> set keymap=czech<CR>
+nnoremap <F8> :set keymap=<CR>
+inoremap <F7> <C-o>:set keymap=czech<CR>
+inoremap <F8> <C-o>:set keymap=<CR>
+
 " let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
 " let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 
@@ -17,19 +27,6 @@ set nofoldenable
 
 filetype plugin indent on    " required
 
-" Go config
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-
-let g:go_list_type = "quickfix"
-
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_use_vimproc=1
 
 syntax enable " Turn on syntax highlighting
 set history=1000 " By default Vim saves your last 8 commands

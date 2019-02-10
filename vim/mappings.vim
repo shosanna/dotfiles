@@ -20,19 +20,22 @@ noremap <leader>gf :GFiles ./<CR>
 noremap <leader>gd :GFiles?<cr>
 
 " Rails specific keystrokes
-noremap <leader>gr :topleft :split config/routes.rb<CR>
-noremap <leader>gg :topleft 50 :split Gemfile<CR>
+" noremap <leader>gr :topleft :split config/routes.rb<CR>
+" noremap <leader>gg :topleft 50 :split Gemfile<CR>
+" noremap <leader>gv :FZF app/views<cr>
+" noremap <leader>gc :FZF app/controllers<cr>
+" noremap <leader>gm :FZF app/models<cr>
+" noremap <leader>gs :FZF app/services<cr>
+" noremap <leader>gh :FZF app/helpers<cr>
+" noremap <leader>gl :FZF lib<cr>
+" noremap <leader>gk :FZF app/assets/stylesheets<cr>
+" noremap <leader>gj :FZF app/assets/javascripts<cr>
 
-noremap <leader>gv :FZF app/views<cr>
-noremap <leader>gc :FZF app/controllers<cr>
-noremap <leader>gm :FZF app/models<cr>
-noremap <leader>gs :FZF app/services<cr>
-noremap <leader>gh :FZF app/helpers<cr>
-noremap <leader>gl :FZF lib<cr>
-noremap <leader>gk :FZF app/assets/stylesheets<cr>
-noremap <leader>gj :FZF app/assets/javascripts<cr>
+noremap <leader>lt :!ctags --extra=+f --exclude=build --exclude=public --exclude=.mypy_cache --exclude=node_modules --exclude=.git -R *<CR>
+nnoremap <leader>gt :Tags<cr>
+nnoremap <leader>ga :Ag<cr>
+nnoremap <leader>gd :Ag <C-r><C-w><cr>
 
-noremap <leader>ct :!ctags --extra=+f -R --exclude=bower_components --exclude=node_modules --exclude=tmp $(bundle list --paths) *<CR>
 
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
@@ -45,10 +48,10 @@ nnoremap <leader>d :Goyo<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " Vim Rspec bindings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>T :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>T :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 map <Leader>w :call VimuxRunCommand(input("prikaz> "))<CR>
 map <Leader>q :call VimuxRunCommand(substitute(getline(line(".")),"^\\s*","",""))<CR>

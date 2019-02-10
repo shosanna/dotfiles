@@ -63,7 +63,7 @@ Plug 'rstacruz/sparkup'
 Plug 'Shougo/vimproc.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 
 Plug 'Valloric/YouCompleteMe'
@@ -75,19 +75,6 @@ Plug 'sbdchd/neoformat'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" Plug 'wokalski/autocomplete-flow'
-" Plug 'Shougo/neco-vim'
-
 call plug#end()
 
 vnoremap - :Neoformat<cr>
-
-" let g:deoplete#enable_at_startup = 1
