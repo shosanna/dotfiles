@@ -20,3 +20,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ln -nsf "$HOME/.dotfiles/knihovny/base16-shell"  "$HOME/.config/base16-shell"
+
+
+mkdir -p "$HOME/.mail/"{gmail,icloud}/{inbox,drafts}
+
+ln -nsf "$HOME/.dotfiles/mutt" "$HOME/.mutt"
+
+ln -nsf "$HOME/.dotfiles/msmtprc"       "$HOME/.msmtprc"
+ln -nsf "$HOME/.dotfiles/mbsyncrc"      "$HOME/.mbsyncrc"
+

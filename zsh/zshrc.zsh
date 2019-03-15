@@ -92,6 +92,7 @@ alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
 alias prg="cd $HOME/Programming"
+alias smart="cd $HOME/Programming/MSD/smart/"
 alias pis="pipenv shell"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
@@ -255,12 +256,15 @@ if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
   . /Users/arnoldov/mrk-proxy/mrk-proxy
 fi
 
+mrk-proxy-on
+
 if command -v brew; then
   export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=~/.local/bin:$PATH
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -271,6 +275,12 @@ fi
 # exec 2>&3 3>&-
 
 alias dirt="docker run -it --rm"
+alias m="neomutt"
+alias de="deactivate"
+alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+
+fpath=(~/.dotfiles/zsh/funcs "${fpath[@]}")
+autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`

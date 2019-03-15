@@ -27,6 +27,7 @@ set nofoldenable
 
 filetype plugin indent on    " required
 
+autocmd FileType javascript setlocal makeprg=eslint\ --format\ compact
 
 syntax enable " Turn on syntax highlighting
 set history=1000 " By default Vim saves your last 8 commands
