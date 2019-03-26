@@ -262,14 +262,14 @@ if command -v brew; then
   export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH=~/.local/bin:$PATH
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+#   # eval "$(command pyenv virtualenv-init -)"
+# fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  # eval "$(command pyenv virtualenv-init -)"
-fi
+export PATH=~/.local/bin:$PATH
 
 # unsetopt XTRACE
 # exec 2>&3 3>&-
