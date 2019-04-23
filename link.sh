@@ -7,7 +7,7 @@ ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 # ln -nsf "$HOME/.dotfiles/xinitrc"       "$HOME/.xinitrc"
 # ln -nsf "$HOME/.dotfiles/fehbg"         "$HOME/.fehbg"
 
-mkdir -p "$HOME/.config/nvim"
+#mkdir -p "$HOME/.config/nvim"
 
 ln -nsf "$HOME/.dotfiles/vim"           "$HOME/.vim"
 ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"

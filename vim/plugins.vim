@@ -12,36 +12,36 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
+" Plug 'benmills/vimux'
 Plug 'tomtom/tcomment_vim'
 
-Plug 'rhysd/vim-clang-format'
-Plug 'vim-scripts/headerguard'
+" Plug 'rhysd/vim-clang-format'
+" Plug 'vim-scripts/headerguard'
 Plug 'sjl/gundo.vim'
 
-Plug 'janko-m/vim-test'
+" Plug 'janko-m/vim-test'
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-bundler'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-dispatch'
 " Plug 'tpope/vim-rails'
 " Plug 'tpope/vim-rake'
 " Plug 'thoughtbot/vim-rspec'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'slim-template/vim-slim'
 
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 
-Plug 'junegunn/vim-easy-align'
-Plug 'vim-scripts/Align'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'vim-scripts/Align'
 
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
 
 " Elixir
 " Plug 'elixir-lang/vim-elixir'
@@ -57,23 +57,23 @@ Plug 'junegunn/limelight.vim'
 " Plug 'dag/vim2hs'
 
 " HTML
-Plug 'rstacruz/sparkup'
+" Plug 'rstacruz/sparkup'
 
 " Javascript and Typescript
 Plug 'Shougo/vimproc.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 
 Plug 'Valloric/YouCompleteMe'
 " Plug 'maralla/completor.vim'
 " Plug 'vim-syntastic/syntastic'
 
-Plug 'w0rp/ale'
-Plug 'sbdchd/neoformat'
+" Plug 'w0rp/ale'
+" Plug 'sbdchd/neoformat'
 
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 call plug#end()
 
