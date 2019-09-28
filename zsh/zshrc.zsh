@@ -172,7 +172,7 @@ alias pe="pacman -Ss"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_xcode-dusk
+base16_nord
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -242,3 +242,4 @@ alias rspec="command bundle exec rspec"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
+export PATH="/Users/shosanna/.miniconda/bin:$PATH"
