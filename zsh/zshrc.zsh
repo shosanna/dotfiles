@@ -1,3 +1,13 @@
+# zmodload zsh/datetime
+# setopt PROMPT_SUBST
+# PS4='+$EPOCHREALTIME %N:%i> '
+#
+# logfile=$(mktemp zsh_profile.XXXXXXXX)
+# echo "Logging to $logfile"
+# exec 3>&2 2>$logfile
+#
+# setopt XTRACE
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.dotfiles/zsh"
 
@@ -82,15 +92,22 @@ alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
 alias prg="cd $HOME/Programming"
+alias smart="cd $HOME/Programming/MSD/smart/"
+alias pis="pipenv shell"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+# if command -v rbenv; then
+#   eval "$(rbenv init -)"
+# fi
 
 export PATH="$HOME/Programming/go/bin:$PATH"
-
 export EDITOR="vim"
+export VISUAL="vim"
+
+alias vi="vim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
@@ -105,15 +122,11 @@ alias ga='git add'
 alias gap='ga -p'
 alias gau='git add -u'
 alias gbr='git branch -v'
-alias gb='gbr'
-alias gbt='gbrt'
 alias gc="git commit -v"
 alias gca='git commit -v -a'
 alias gcam='gca --amend'
 alias gch='git cherry-pick'
-alias gcm='git commit -v --amend'
 alias gco='git checkout'
-alias gcop='gco -p'
 alias gd='git diff -M'
 alias gd.='git diff -M --color-words="."'
 alias gdc='git diff --cached -M'
@@ -139,7 +152,6 @@ gls() {
 alias gm='git merge --no-ff'
 alias gmf='git merge --ff-only'
 alias gp='git push'
-alias gpt='gp --tags'
 alias gr='git reset'
 alias grb='git rebase -p'
 alias grbc='git rebase --continue'
@@ -152,14 +164,9 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gup='git smart-pull'
-alias graf='git remote add $argv[1] $argv[2] && gf $argv[1]'
-alias gt='git difftool'
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
-
-alias d='gd'
-alias st="foreman start -f Procfile.fullDev -p 3000"
 
 alias b="bundle"
 alias r="rails"
@@ -169,7 +176,9 @@ alias pi="sudo pacman -S"
 alias pq="pacman -Ssq"
 alias pe="pacman -Ss"
 
-BASE16_SHELL=$HOME/.config/base16-shell/
+alias ra="ranger --cmd='set show_hidden=true'"
+
+export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 base16_nord
@@ -223,14 +232,6 @@ function dot() {
   cd "$HOME/.dotfiles"
 }
 
-alias m="mix"
-alias mps="mix phoenix.server"
-alias im="iex -S mix"
-alias is="iex -S mix"
-alias isp="iex -S mix phoenix.server"
-alias mt="mix test"
-
-export PATH="$HOME/.anaconda2/bin:$PATH"
 source ~/.dotfiles/.tmuxinator.zsh
 
 alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
@@ -239,7 +240,47 @@ alias rake="command bundle exec rake"
 alias rails="command bundle exec rails"
 alias rspec="command bundle exec rspec"
 
+alias mpo="mrk-proxy-on"
+alias mpf="mrk-proxy-off"
+
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
-export PATH="/Users/shosanna/.miniconda/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
+  . /Users/arnoldov/mrk-proxy/mrk-proxy
+fi
+
+mrk-proxy-on
+
+if command -v brew; then
+  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+fi
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+#   # eval "$(command pyenv virtualenv-init -)"
+# fi
+
+export PATH=~/.local/bin:$PATH
+
+# unsetopt XTRACE
+# exec 2>&3 3>&-
+
+alias dirt="docker run -it --rm"
+alias m="neomutt"
+alias de="deactivate"
+alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+
+fpath=(~/.dotfiles/zsh/funcs "${fpath[@]}")
+autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
