@@ -240,8 +240,8 @@ alias rake="command bundle exec rake"
 alias rails="command bundle exec rails"
 alias rspec="command bundle exec rspec"
 
-alias mpo="mrk-proxy-on"
-alias mpf="mrk-proxy-off"
+# alias mpo="mrk-proxy-on"
+# alias mpf="mrk-proxy-off"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
@@ -251,11 +251,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
-  . /Users/arnoldov/mrk-proxy/mrk-proxy
-fi
-
-mrk-proxy-on
+# if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
+#   . /Users/arnoldov/mrk-proxy/mrk-proxy
+# fi
+#
+# mrk-proxy-on
 
 if command -v brew; then
   export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
