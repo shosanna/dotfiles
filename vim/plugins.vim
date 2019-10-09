@@ -66,7 +66,7 @@ Plug 'mxw/vim-jsx'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 " Plug 'maralla/completor.vim'
 " Plug 'vim-syntastic/syntastic'
 
@@ -74,6 +74,9 @@ Plug 'Valloric/YouCompleteMe'
 " Plug 'sbdchd/neoformat'
 
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"
+
+Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
