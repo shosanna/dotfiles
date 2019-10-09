@@ -15,7 +15,7 @@ export ZSH="$HOME/.dotfiles/zsh"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mh"
+ZSH_THEME="norm"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -181,7 +181,8 @@ alias ra="ranger --cmd='set show_hidden=true'"
 export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-base16_unikitty-dark
+# base16_unikitty-dark
+base16_brewer
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -235,7 +236,7 @@ function dot() {
 
 source ~/.dotfiles/.tmuxinator.zsh
 
-alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
+# alias mysql_liid='mycli -p 3306 -u root -p "" -D liid.io_development'
 
 alias rake="command bundle exec rake"
 alias rails="command bundle exec rails"
