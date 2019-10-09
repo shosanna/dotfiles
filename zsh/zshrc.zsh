@@ -184,7 +184,6 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 # base16_unikitty-dark
 base16_brewer
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function reload() {
