@@ -18,6 +18,13 @@ ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"
 # ln -nsf "$HOME/.dotfiles/vim/init.vim"  "$HOME/.config/nvim/init.vim"
 ln -nsf "$HOME/.dotfiles/emacs"           "$HOME/.emacs"
 ln -nsf "$HOME/.dotfiles/diary"           "$HOME/diary"
+ln -nsf "$HOME/.dotfiles/gtkrc-2.0"           "$HOME/.gtkrc-2.0"
+ln -nsf "$HOME/.dotfiles/gtkrc-2.0.mine"           "$HOME/.gtkrc-2.0.mine"
+
+mkdir -p "$HOME/.config/gtk-3.0"
+ln -nsf "$HOME/.dotfiles/gtk-3.0/gtk.css"           "$HOME/.config/gtk-3.0/gtk.css"
+ln -nsf "$HOME/.dotfiles/gtk-3.0/settings.ini"           "$HOME/.config/gtk-3.0/settings.ini"
+
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
