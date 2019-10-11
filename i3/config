@@ -84,17 +84,18 @@ client.urgent           $base08 $base08 $base00 $base00 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
-bindsym $mod+p exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#9C5C8F' -sf '#EEEEEE' -fn 'monospace-12'"
+
 
 # start dmenu (a program launcher)
 # bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec "rofi -display-run 'run' -modi drun -show run -config ~/.dotfiles/rofi-example.config"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-for_window [class="Nautilus"] floating enable
+# for_window [class="Nautilus"] floating enable
 for_window [class="Godot"] floating enable
 for_window [title=".*Godot Engine*."] floating disable
 
@@ -292,4 +293,4 @@ mode "$mode_gaps_outer" {
 exec_always /home/shosanna/.config/polybar/launch.sh
 exec_always /home/shosanna/Programming/feh-blur -b 4 --darken 4 --no-animate
 exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
-exec compton -f
+exec_always compton -f
