@@ -46,12 +46,17 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # Background
-sh ~/.fehbg &
-sh ~/.dotfiles/nuf_status.sh &
+# sh ~/.fehbg &
+# sh ~/.dotfiles/nuf_status.sh &
 
-while :; do
-  "$HOME/dwm/dwm"
-done
+# while :; do
+#   "$HOME/dwm/dwm"
+# done
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
+exec i3
 
 # exec xmonad
 # exec "$HOME/dwm/dwm"
