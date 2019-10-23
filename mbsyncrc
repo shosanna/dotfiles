@@ -9,7 +9,7 @@ User zuzana.dostalova@icloud.com
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.passwords/icloud.gpg"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.password-store/icloud.gpg"
 
 IMAPStore icloud-remote
 Account icloud
@@ -68,7 +68,7 @@ Channel icloud-trash
 IMAPAccount gmail
 Host imap.gmail.com
 User zuzana.arnoldova@gmail.com
-PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.password-store/gmail.gpg"
 AuthMechs PLAIN
 SSLType IMAPS
 CertificateFile ~/.mutt/certs/gmail.crt
