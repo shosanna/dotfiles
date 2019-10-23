@@ -12,7 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'benmills/vimux'
+Plug 'benmills/vimux'
 Plug 'tomtom/tcomment_vim'
 
 " Plug 'rhysd/vim-clang-format'
@@ -37,7 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 
-" Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 " Plug 'vim-scripts/Align'
 
 " Plug 'junegunn/goyo.vim'
@@ -77,6 +77,8 @@ Plug 'mxw/vim-jsx'
 "
 
 Plug 'chrisbra/Colorizer'
+Plug 'stevearc/vim-arduino'
+Plug 'sudar/vim-arduino-syntax'
 
 call plug#end()
 
