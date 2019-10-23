@@ -278,6 +278,8 @@ alias dirt="docker run -it --rm"
 alias m="neomutt"
 alias de="deactivate"
 alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+alias aur="auracle"
+alias to="vim ~/.todo/main.txt"
 
 fpath=(~/.dotfiles/zsh/funcs "${fpath[@]}")
 autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
@@ -285,3 +287,7 @@ autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+
+# if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#   exec startx
+# fi
