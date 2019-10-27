@@ -15,7 +15,8 @@ export ZSH="$HOME/.dotfiles/zsh"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
+ZSH_THEME="darth"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -92,8 +93,6 @@ alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
 alias prg="cd $HOME/Programming"
-alias smart="cd $HOME/Programming/MSD/smart/"
-alias pis="pipenv shell"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -163,7 +162,7 @@ alias grv='git remote -v'
 alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
-alias gup='git smart-pull'
+alias gup='git pull'
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
@@ -182,7 +181,7 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # base16_unikitty-dark
-base16_monokai
+base16_zenburn
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -283,6 +282,11 @@ alias to="vim ~/.todo/main.txt"
 
 fpath=(~/.dotfiles/zsh/funcs "${fpath[@]}")
 autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
+
+if [[ $(hostname) == "kolacek" ]]; then
+  export QT_SCALE_FACTOR=2
+  export GDK_SCALE=1.8
+fi
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
