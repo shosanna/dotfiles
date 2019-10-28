@@ -4,7 +4,7 @@ ln -nsf "$HOME/.dotfiles/tmux.conf"     "$HOME/.tmux.conf"
 ln -nsf "$HOME/.dotfiles/tmuxinator"    "$HOME/.tmuxinator"
 ln -nsf "$HOME/.dotfiles/zsh"           "$HOME/.oh-my-zsh"
 ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
-# ln -nsf "$HOME/.dotfiles/xinitrc"       "$HOME/.xinitrc"
+ln -nsf "$HOME/.dotfiles/xinitrc"       "$HOME/.xinitrc"
 # ln -nsf "$HOME/.dotfiles/fehbg"         "$HOME/.fehbg"
 ln -nsf "$HOME/.dotfiles/Xresources"         "$HOME/.Xresources"
 
