@@ -63,8 +63,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/vimproc.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 " Plug 'Quramy/tsuquyomi'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'maralla/completor.vim'
@@ -73,8 +77,9 @@ Plug 'mxw/vim-jsx'
 " Plug 'w0rp/ale'
 " Plug 'sbdchd/neoformat'
 
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-"
+" Plug 'SirVer/ultisnips' |
+Plug 'honza/vim-snippets'
+
 
 Plug 'chrisbra/Colorizer'
 Plug 'stevearc/vim-arduino'

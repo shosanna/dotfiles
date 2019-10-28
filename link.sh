@@ -7,6 +7,7 @@ ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 ln -nsf "$HOME/.dotfiles/xinitrc"       "$HOME/.xinitrc"
 # ln -nsf "$HOME/.dotfiles/fehbg"         "$HOME/.fehbg"
 ln -nsf "$HOME/.dotfiles/Xresources"         "$HOME/.Xresources"
+ln -nsf "$HOME/.dotfiles/Xmodmap"       "$HOME/.Xmodmap"
 
 mkdir -p "$HOME/.config/i3"
 ln -nsf "$HOME/.dotfiles/i3/config"         "$HOME/.config/i3/config"
