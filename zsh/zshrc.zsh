@@ -285,7 +285,7 @@ autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
 
 if [[ $(hostname) == "kolacek" ]]; then
   export QT_SCALE_FACTOR=2
-  export GDK_SCALE=1.8
+  export GDK_SCALE=2
 fi
 
 # tabtab source for electron-forge package
