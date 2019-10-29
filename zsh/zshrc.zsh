@@ -60,7 +60,7 @@ plugins=()
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/heroku/bin"
+export PATH="$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export GOPATH="$HOME/Programming/go"
 # export MANPATH="/usr/local/man:$MANPATH"
 
