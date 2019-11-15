@@ -292,6 +292,16 @@ fi
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
+if command -v gpgconf; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+# TODO: when exactly is this needed?
+  gpg-connect-agent updatestartuptty /bye > /dev/null
+fi
+
+alias d="git diff"
+
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
 # fi
