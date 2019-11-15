@@ -1,3 +1,7 @@
+default:
+	./link.sh
+	git submodule update --init --recursive
+
 pyenv:
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
