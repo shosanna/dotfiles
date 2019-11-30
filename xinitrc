@@ -56,6 +56,8 @@ fi
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+sxhkd &
+
 exec i3
 
 # exec xmonad
