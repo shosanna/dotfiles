@@ -5,6 +5,11 @@ Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'prettier/vim-prettier'
+let g:prettier#autoformat_require_pragma = 1
+let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat_config_files = ['.prettierrc']
+
 " Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'tomtom/tlib_vim'
 

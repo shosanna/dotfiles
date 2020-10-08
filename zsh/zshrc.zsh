@@ -116,6 +116,7 @@ fi
 
 # aliases
 alias s='git status -sb $argv; return 0'
+alias d='git diff'
 alias g='git'
 alias ga='git add'
 alias gap='ga -p'
@@ -163,6 +164,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gup='git pull'
+
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
@@ -295,3 +297,12 @@ fi
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
 # fi
+
+
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+export PATH="$HOME/.todo/bin:$PATH"
+
+export npm_config_prefix="~/.npm"
+PATH="$HOME/.npm/bin:$PATH"
+
+eval "$(direnv hook zsh)"
