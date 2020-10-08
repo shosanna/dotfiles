@@ -287,12 +287,22 @@ autoload -Uz $(print ~/.dotfiles/zsh/funcs/*(:t))
 
 if [[ $(hostname) == "kolacek" ]]; then
   export QT_SCALE_FACTOR=2
-  export GDK_SCALE=1.8
+  export GDK_SCALE=2
 fi
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+
+if command -v gpgconf; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+# TODO: when exactly is this needed?
+  gpg-connect-agent updatestartuptty /bye > /dev/null
+fi
+
+alias d="git diff"
 
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
