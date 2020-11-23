@@ -317,3 +317,6 @@ export npm_config_prefix="~/.npm"
 PATH="$HOME/.npm/bin:$PATH"
 
 eval "$(direnv hook zsh)"
+
+
+export PATH="/opt/homebrew/bin:$PATH"
