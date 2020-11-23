@@ -93,6 +93,7 @@ alias ohmyzsh="vim $HOME/.oh-my-zsh"
 alias vimconfig="vim $HOME/.vimrc"
 alias tmuxconfig="vim $HOME/.tmux.conf"
 alias prg="cd $HOME/Programming"
+alias i3config="vim $HOME/.config/i3/config"
 
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-pop.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -117,6 +118,7 @@ fi
 
 # aliases
 alias s='git status -sb $argv; return 0'
+alias d='git diff'
 alias g='git'
 alias ga='git add'
 alias gap='ga -p'
@@ -164,6 +166,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gup='git pull'
+
 
 alias tmux="TERM=xterm-256color tmux"
 export TERM="xterm-256color"
@@ -306,3 +309,4 @@ alias d="git diff"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 eval "$(direnv hook zsh)"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.todo/bin:$PATH"

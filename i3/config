@@ -35,6 +35,7 @@ bindsym $mod+Return exec urxvt -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+grave exec ~/.dotfiles/bin/dmenuunicode
 
 # Zenburn
 set $base00 #383838
