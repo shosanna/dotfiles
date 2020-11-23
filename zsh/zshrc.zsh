@@ -67,7 +67,7 @@ export GOPATH="$HOME/Programming/go"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -103,10 +103,11 @@ export PATH="$HOME/.node_modules/bin:$HOME/.rbenv/bin:$PATH"
 # fi
 
 export PATH="$HOME/Programming/go/bin:$PATH"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
@@ -200,7 +201,6 @@ function pgdisc() {
   echo "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = current_database() AND pid <> pg_backend_pid();" | psql $1
 }
 
-
 function rbenv-update() {
   RBENV="$HOME/.rbenv"
   RUBY_BUILD="$RBENV/plugins/ruby-build"
@@ -248,7 +248,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f "$HOME/.profile" ] && source "$HOME/.profile"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # if [ -f /Users/arnoldov/mrk-proxy/mrk-proxy ]; then
@@ -257,9 +257,9 @@ export NVM_DIR="$HOME/.nvm"
 #
 # mrk-proxy-on
 
-if command -v brew; then
-  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
-fi
+# if command -v brew; then
+#   export PATH="$(brew --prefix qt)/bin:$PATH"
+# fi
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
@@ -288,10 +288,6 @@ if [[ $(hostname) == "kolacek" ]]; then
   export GDK_SCALE=2
 fi
 
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/arnoldov/.nvm/versions/node/v10.8.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-
 if command -v gpgconf; then
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -305,3 +301,8 @@ alias d="git diff"
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
 # fi
+
+# eval "$(rbenv init -)"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+eval "$(direnv hook zsh)"
+export PATH="$HOME/.cargo/bin:$PATH"

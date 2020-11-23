@@ -66,24 +66,63 @@ Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-" Plug 'Quramy/tsuquyomi'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'maralla/completor.vim'
-" Plug 'vim-syntastic/syntastic'
 
 " Plug 'w0rp/ale'
 " Plug 'sbdchd/neoformat'
 
-" Plug 'SirVer/ultisnips' |
-Plug 'honza/vim-snippets'
-
+" Plug 'SirVer/ultisnips' | " Plug 'honza/vim-snippets'
 
 Plug 'chrisbra/Colorizer'
-Plug 'stevearc/vim-arduino'
-Plug 'sudar/vim-arduino-syntax'
+" Plug 'stevearc/vim-arduino'
+" Plug 'sudar/vim-arduino-syntax'
+
+Plug 'cespare/vim-toml'
+
+set completeopt-=preview
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+setlocal omnifunc=lsp#complete
+" --------------------------------
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'lighttiger2505/deoplete-vim-lsp'
+" <TAB>: completion for deoplete from https://github.com/Shougo/deoplete.nvim/issues/816
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+
+
+function! s:on_lsp_buffer_enabled() abort
+    " use omnifunc if you are fine with it.
+    " setlocal omnifunc=lsp#complete
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    " some mappings to use, tweak as you wish.
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" whether to enable diagnostics for vim-lsp (we may want to use ALE for other
+" plugins for that.
+let g:lsp_diagnostics_enabled = 1
 
 call plug#end()
 
