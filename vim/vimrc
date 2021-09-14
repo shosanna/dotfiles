@@ -96,7 +96,7 @@ aug various_file_types
   au BufNewFile,BufRead *vimrc set filetype=vim
 aug END
 
-set pastetoggle=<F5>
+set pastetoggle=<F3>
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!

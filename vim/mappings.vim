@@ -61,6 +61,7 @@ nnoremap <Down> <C-w>5+
 nnoremap <Left> <C-w>5<
 nnoremap <Right> <C-w>5>
 
+nmap <F5> :VimuxRunCommand("make")<cr>
 nmap <leader>e :VimuxRunCommand("make")<cr>
 
 vmap <leader>css :sort<bar>:Align :\zs<CR>

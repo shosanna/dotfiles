@@ -94,9 +94,11 @@ bindsym $mod+p exec "rofi -display-run 'run' -modi drun -show run -config ~/.dot
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # for_window [class="Nautilus"] floating enable
+for_window [class="Zeal"] floating enable
 for_window [class="Godot"] floating enable
-for_window [title=".*Godot Engine*."] floating disable
-
+for_window [title="Godot Engine*."] floating enable
+for_window [title="BITGUN*."] floating enable
+for_window [title="Fast Image Browser"] floating enable
 # change focus
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -293,5 +295,11 @@ exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
 exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
 exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
+exec_always xrandr \
+  --output DVI-I-1 --mode 1920x1200 --pos 0x0 --rotate normal \
+  --output DP-1 --off \
+  --output DP-2 --off \
+  --output DP-3 --off \
+  --output HDMI-1 --primary --mode 2560x1440 --pos 1920x0 --rotate normal
 # exec xrandr --output eDP1 --mode 1680x1050
 # exec sudo wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
