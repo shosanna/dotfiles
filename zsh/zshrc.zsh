@@ -22,7 +22,7 @@ ZSH_THEME="darth"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -181,11 +181,11 @@ alias pe="pacman -Ss"
 
 alias ra="ranger --cmd='set show_hidden=true'"
 
-export BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# base16_unikitty-dark
-base16_zenburn
+# export BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# 
+# # base16_unikitty-dark
+# base16_zenburn
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

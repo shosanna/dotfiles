@@ -293,7 +293,7 @@ mode "$mode_gaps_outer" {
 exec_always ~/.config/polybar/launch.sh
 exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
 exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
-exec_always compton -f
+# exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
 exec_always xrandr \
   --output DVI-I-1 --mode 1920x1200 --pos 0x0 --rotate normal \

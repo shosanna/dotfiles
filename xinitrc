@@ -53,8 +53,9 @@ fi
 #   "$HOME/dwm/dwm"
 # done
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+# autocutsel -fork &
+# autocutsel -selection PRIMARY -fork &
+autocutsel -selection CLIPBOARD -fork &
 
 sxhkd &
 
