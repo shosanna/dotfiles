@@ -107,7 +107,7 @@ export PATH="$HOME/Programming/go/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-alias vi="nvim"
+alias vi="vim"
 alias vim="nvim"
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
@@ -300,6 +300,7 @@ if command -v gpgconf; then
 fi
 
 alias d="git diff"
+alias c="cargo run"
 
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
@@ -307,8 +308,9 @@ alias d="git diff"
 
 # eval "$(rbenv init -)"
 export PATH="/usr/local/opt/qt/bin:$PATH"
-eval "$(direnv hook zsh)"
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.todo/bin:$PATH"
+
+eval "$(direnv hook zsh)"

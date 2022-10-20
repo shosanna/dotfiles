@@ -19,13 +19,20 @@ inoremap <F8> <C-o>:set keymap=<CR>
 " let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 
 " let g:python_host_prog = "/usr/bin/python2"
-let g:python3_host_prog = "/usr/local/bin/python3"
+" let g:python3_host_prog = "/usr/local/bin/python3"
+let g:python3_host_prog = "/opt/homebrew/bin/python3"
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
 set nofoldenable
 
 filetype plugin indent on    " required
+
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
+nnoremap - :Neoformat<cr>
 
 autocmd FileType javascript setlocal makeprg=eslint\ --format\ compact
 
@@ -55,7 +62,7 @@ set backupcopy=yes
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,node_modules,tmp,project/target,target,tags,CMakeFiles,bower_components,dist,_darcs,vcr,app/assets/images,*.dSYM,*.pyc,_build,deps,rel
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,node_modules,tmp,project/target,target,tags,CMakeFiles,bower_components,dist,_darcs,vcr,app/assets/images,*.dSYM,*.pyc,_build,deps,rel,target,*.rpyc
 
 set t_Co=256
 set bg=dark

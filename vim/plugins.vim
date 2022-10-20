@@ -71,9 +71,8 @@ Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-
 " Plug 'w0rp/ale'
-" Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat'
 
 " Plug 'SirVer/ultisnips' | " Plug 'honza/vim-snippets'
 
@@ -83,12 +82,24 @@ Plug 'chrisbra/Colorizer'
 
 Plug 'cespare/vim-toml'
 
+Plug 'chaimleib/vim-renpy'
+Plug 'tikhomirov/vim-glsl'
+
+Plug 'habamax/vim-godot'
+
 set completeopt-=preview
 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 setlocal omnifunc=lsp#complete
 " --------------------------------
+
+if has('win32') || has('win64')
+  Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+else
+  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+endif
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -96,13 +107,13 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 
 Plug 'lighttiger2505/deoplete-vim-lsp'
+let g:deoplete#enable_at_startup = 1
+
 " <TAB>: completion for deoplete from https://github.com/Shougo/deoplete.nvim/issues/816
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
-
 
 function! s:on_lsp_buffer_enabled() abort
     " use omnifunc if you are fine with it.
@@ -118,6 +129,13 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
 endfunction
+
+augroup set-commentstring-ag
+autocmd!
+autocmd BufEnter *.glsl,*.vert,*.frag :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+" when you've changed the name of a file opened in a buffer, the file type may have changed
+autocmd BufFilePost *.glsl,*.vert,*.frag :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+augroup END
 
 augroup lsp_install
     au!
