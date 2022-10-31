@@ -39,7 +39,7 @@ nnoremap <leader>gd :Ag <C-r><C-w><cr>
 
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
-" nnoremap <buffer> <Leader>e :call VimuxRunCommand("c")<CR>
+nnoremap <buffer> <Leader>e :call VimuxRunCommand("c")<CR>
 nnoremap <buffer> <Leader>r :call VimuxRunCommand("c")<CR>
 " nnoremap <leader>r :!rubocop %<cr>
 
