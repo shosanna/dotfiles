@@ -313,3 +313,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.todo/bin:$PATH"
 
 eval "$(direnv hook zsh)"
+export CARGO_NET_GIT_FETCH_WITH_CLI=true

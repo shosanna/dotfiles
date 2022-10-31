@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -99,6 +99,8 @@ for_window [class="Godot"] floating enable
 for_window [title="Godot Engine*."] floating enable
 for_window [title="BITGUN*."] floating enable
 for_window [title="Fast Image Browser"] floating enable
+for_window [title="FLOAT"] floating enable
+
 # change focus
 bindsym $mod+j focus down
 bindsym $mod+k focus up
