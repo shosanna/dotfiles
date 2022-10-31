@@ -300,7 +300,6 @@ if command -v gpgconf; then
 fi
 
 alias d="git diff"
-alias c="cargo run"
 
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #   exec startx
