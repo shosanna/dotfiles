@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -298,10 +298,11 @@ exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
 # exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
 exec_always xrandr \
-  --output DVI-I-1 --mode 1920x1200 --pos 0x0 --rotate normal \
-  --output DP-1 --off \
-  --output DP-2 --off \
-  --output DP-3 --off \
-  --output HDMI-1 --primary --mode 2560x1440 --pos 1920x0 --rotate normal
+  --output HDMI-0 --mode 1920x1200 --pos 0x0 --rotate normal \
+  --output DP-0 --primary --mode 2560x1440 --pos 1920x0 --rotate normal \
+
+  # --output DP-1 --off \
+  # --output DP-2 --off \
+  # --output DP-3 --off \
 # exec xrandr --output eDP1 --mode 1680x1050
 # exec sudo wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
