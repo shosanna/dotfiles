@@ -292,7 +292,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always ~/.config/polybar/launch.sh
+exec_always ~/.config/polybar/launch.sh --forest
 exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
 exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
 # exec_always compton -f
