@@ -67,7 +67,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,node_modules,tmp
 set t_Co=256
 set bg=dark
 let base16colorspace=256  " Access colors present in 256 colorspace
-color base16-zenburn
+color base16-nord
 
 " Remember last location in file
 aug last_location
