@@ -15,6 +15,7 @@ ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 
 mkdir -p "$HOME/.config/nvim"
 
+ln -nsf "$HOME/.dotfiles/rofi"           "$HOME/.config/rofi"
 ln -nsf "$HOME/.dotfiles/diary"           "$HOME/diary"
 ln -nsf "$HOME/.dotfiles/vim"           "$HOME/.vim"
 ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"

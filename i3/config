@@ -314,9 +314,13 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always ~/.config/polybar/launch.sh --forest
+# exec_always ~/.config/polybar/launch.sh --forest
+exec_always ~/.dotfiles/polybar_launch.sh
+
 exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
-exec_always feh --bg-fill ~/Documents/wallpapers/0263.jpg
+exec_always feh --bg-fill ~/.dotfiles/polybar-themes/wallpapers/bg_3.jpg
+# exec_always fehbg
+
 # exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
 exec_always xrandr \

@@ -1,6 +1,6 @@
 #!/bin/sh
 
 while :; do
-  feh --no-fehbg --randomize --bg-scale ~/Pictures/*
+  feh --no-fehbg --randomize --bg-scale ~/.dotfiles/polybar-themes/wallpapers/*
   sleep 60
 done
