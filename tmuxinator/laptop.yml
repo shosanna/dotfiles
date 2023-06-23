@@ -1,0 +1,13 @@
+# ~/.tmuxinator/czechicoach.yml
+
+name: czechicoach
+root: ~/Programming/sneaky-it-support-rust
+
+windows:
+  - editor: vim
+  - console:
+      layout: main-vertical
+      panes:
+        -
+        - 
+  - server: cargo run
