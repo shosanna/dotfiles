@@ -1,5 +1,5 @@
-default:
-	./link.sh
+old-default:
+	link.sh
 	git submodule update --init --recursive
 
 pyenv:

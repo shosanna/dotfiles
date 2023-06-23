@@ -2,8 +2,8 @@
 
 ln -nsf "$HOME/.dotfiles/tmux.conf"     "$HOME/.tmux.conf"
 #ln -nsf "$HOME/.dotfiles/tmuxinator"    "$HOME/.tmuxinator"
-ln -nsf "$HOME/.dotfiles/zsh"           "$HOME/.oh-my-zsh"
-ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
+# ln -nsf "$HOME/.dotfiles/zsh"           "$HOME/.oh-my-zsh"
+ln -nsf "$HOME/.dotfiles/zshrc"         "$HOME/.zshrc"
 #ln -nsf "$HOME/.dotfiles/xinitrc"       "$HOME/.xinitrc"
 # ln -nsf "$HOME/.dotfiles/fehbg"         "$HOME/.fehbg"
 #ln -nsf "$HOME/.dotfiles/Xresources"         "$HOME/.Xresources"
@@ -16,10 +16,13 @@ ln -nsf "$HOME/.dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 mkdir -p "$HOME/.config/nvim"
 
 ln -nsf "$HOME/.dotfiles/rofi"           "$HOME/.config/rofi"
-ln -nsf "$HOME/.dotfiles/diary"           "$HOME/diary"
-ln -nsf "$HOME/.dotfiles/vim"           "$HOME/.vim"
-ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"
-ln -nsf "$HOME/.dotfiles/vim/init.vim"  "$HOME/.config/nvim/init.vim"
+ln -nsf "$HOME/.dotfiles/kitty"          "$HOME/.config/kitty"
+ln -nsf "$HOME/.dotfiles/alacritty"      "$HOME/.config/alacritty"
+
+# ln -nsf "$HOME/.dotfiles/diary"           "$HOME/diary"
+# ln -nsf "$HOME/.dotfiles/vim"           "$HOME/.vim"
+# ln -nsf "$HOME/.dotfiles/vim/vimrc"     "$HOME/.vimrc"
+# ln -nsf "$HOME/.dotfiles/vim/init.vim"  "$HOME/.config/nvim/init.vim"
 #ln -nsf "$HOME/.dotfiles/emacs"           "$HOME/.emacs"
 #ln -nsf "$HOME/.dotfiles/gtkrc-2.0"           "$HOME/.gtkrc-2.0"
 #ln -nsf "$HOME/.dotfiles/gtkrc-2.0.mine"           "$HOME/.gtkrc-2.0.mine"
@@ -29,10 +32,10 @@ ln -nsf "$HOME/.dotfiles/vim/init.vim"  "$HOME/.config/nvim/init.vim"
 #ln -nsf "$HOME/.dotfiles/gtk-3.0/settings.ini"           "$HOME/.config/gtk-3.0/settings.ini"
 
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-ln -nsf "$HOME/.dotfiles/knihovny/base16-shell"  "$HOME/.config/base16-shell"
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#
+# ln -nsf "$HOME/.dotfiles/knihovny/base16-shell"  "$HOME/.config/base16-shell"
 
 
 #mkdir -p "$HOME/.mail/"{gmail,icloud}/{inbox,drafts}
