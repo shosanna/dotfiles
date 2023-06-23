@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -f .c ]; then
+  bash .c
+elif [ -f Makefile ]; then
+  make
+else
+  cargo run
+fi
