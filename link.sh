@@ -16,6 +16,7 @@ ln -nsf "$HOME/.dotfiles/zshrc"         "$HOME/.zshrc"
 mkdir -p "$HOME/.config/nvim"
 
 ln -nsf "$HOME/.dotfiles/rofi"           "$HOME/.config/rofi"
+ln -nsf "$HOME/.dotfiles/ranger"         "$HOME/.config/ranger"
 ln -nsf "$HOME/.dotfiles/kitty"          "$HOME/.config/kitty"
 ln -nsf "$HOME/.dotfiles/alacritty"      "$HOME/.config/alacritty"
 
