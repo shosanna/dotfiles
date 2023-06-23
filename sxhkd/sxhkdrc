@@ -1,6 +1,0 @@
-super + Return
-  urxvt -e tmux
-
-super + space
-  rofi -display-run 'run' -modi drun -show run -config ~/.dotfiles/rofi-example.config
-
