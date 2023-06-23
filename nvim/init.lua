@@ -61,6 +61,7 @@ vim.o.list = false
 vim.o.listchars = "tab:--,trail:."
 vim.o.pastetoggle = "<F3>"
 vim.o.undofile = true
+vim.g.VimuxOrientation = "h"
 
 require("lazy").setup({
 	"folke/which-key.nvim",
@@ -85,6 +86,8 @@ require("lazy").setup({
 	"junegunn/fzf.vim",
 
   "Pocco81/auto-save.nvim",
+
+  "benmills/vimux",
 
 	"tpope/vim-sensible",
 	"tpope/vim-eunuch",
@@ -135,6 +138,10 @@ ColorMyPencils()
 
 vim.g.neoformat_only_msg_on_error = 1
 
+vim.keymap.set("n", "<leader>r", "<cmd>VimuxRunCommand('c')<CR>", {})
+vim.keymap.set("n", "<Leader>q", "<cmd>VimuxRunCommand('c')<CR>", {})
+vim.keymap.set("n", "<Leader>w", "<Cmd>VimuxRunCommand('c')<CR>", {})
+
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w><C-j>", {})
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w><C-k>", {})
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w><C-h>", {})
@@ -170,7 +177,7 @@ vim.api.nvim_set_keymap("n", "<CR>", "<cmd>nohlsearch<CR>", {})
 
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "lua", "javascript", "typescript" },
+	ensure_installed = { "lua", "javascript", "typescript", "rust", "json", "jsonc", "toml" },
 
 	-- Automatically install missing parsers when entering buffer
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
@@ -199,7 +206,7 @@ require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "tsserver" },
+	ensure_installed = { "lua_ls", "tsserver", "rust_analyzer" },
 })
 
 -- require('typescript').setup({

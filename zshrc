@@ -12,7 +12,7 @@ export https_proxy=
 export HTTPS_PROXY=
 
 source "$HOME/.antidote/antidote.zsh"
-antidote load "$HOME/.zsh/plugins.txt"
+antidote load "$HOME/.dotfiles/zsh/plugins.txt"
 
 fpath=(~/.zsh/funcs "${fpath[@]}")
 
@@ -50,13 +50,11 @@ export VISUAL="$VIM_VERSION"
 alias vim="$VIM_VERSION"
 alias vi="vim"
 alias ra=ranger
-alias s="git status"
-alias gco='git checkout'
-alias ga='git add'
-alias gp='git push'
 alias smart='cd ~/dev/smart'
 alias prg='cd ~/dev' 
+alias dot='cd ~/.dotfiles'
 
+alias s="git status -sb"
 alias ga='git add'
 alias gap='ga -p'
 alias gau='git add -u'
@@ -139,6 +137,8 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export PATH="$HOME/.dotfiles/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
