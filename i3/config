@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -108,7 +108,8 @@ client.background       $base07
 
 # start dmenu (a program launcher)
 # bindsym $mod+p exec dmenu_run
-bindsym $mod+p exec "rofi -display-run 'run' -modi drun -show run -config ~/.dotfiles/rofi-example.config"
+bindsym $mod+p exec "rofi -display-run 'run' -modi drun -show run -config ~/.dotfiles/rofi/config.rasi"
+bindsym $mod+space exec "rofi -display-run 'run' -modi drun -show run -config ~/.dotfiles/rofi/config.rasi"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
