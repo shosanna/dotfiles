@@ -164,9 +164,18 @@ function _G.ReloadConfig()
 end
 
 -- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Files ./<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Buffers<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader><leader>", "<c-^>", {})
+
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Files ./<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>F", "<cmd>FZF %%<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd>Tags<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>ga", "<cmd>Rg<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>gs", ":Rg <C-r><C-w><cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>gd", ":Rg <C-r><C-w><cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Buffers<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>B", "<cmd>BTags<cr>", {})
+
+
 
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { silent = true })
 
@@ -177,7 +186,7 @@ vim.api.nvim_set_keymap("n", "<CR>", "<cmd>nohlsearch<CR>", {})
 
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "lua", "javascript", "typescript", "rust", "json", "jsonc", "toml" },
+	ensure_installed = { "lua", "javascript", "typescript", "rust", "json", "jsonc", "toml", "python" },
 
 	-- Automatically install missing parsers when entering buffer
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
@@ -206,7 +215,7 @@ require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "tsserver", "rust_analyzer" },
+	ensure_installed = { "lua_ls", "tsserver", "rust_analyzer", "pylsp" },
 })
 
 -- require('typescript').setup({

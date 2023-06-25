@@ -171,7 +171,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Ctrl+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -319,8 +319,8 @@ mode "$mode_gaps_outer" {
 exec_always ~/.dotfiles/polybar_launch.sh
 
 exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
-exec_always feh --bg-fill ~/.dotfiles/polybar-themes/wallpapers/bg_3.jpg
-# exec_always fehbg
+# exec_always feh --bg-fill ~/.dotfiles/polybar-themes/wallpapers/bg_3.jpg
+exec_always ~/.config/fehbg
 
 # exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
