@@ -116,6 +116,10 @@ alias gsu='git submodule update'
 alias gw='git show'
 
 
+alias pi="sudo pacman -S"
+alias pe="pacman -Ss"
+alias pq="pacman -Ssq"
+
 stty sane
 
 # Load all libs under

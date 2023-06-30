@@ -85,10 +85,16 @@ require("lazy").setup({
 	"junegunn/fzf",
 	"junegunn/fzf.vim",
 
-  "Pocco81/auto-save.nvim",
+	"farmergreg/vim-lastplace",
 
-  "benmills/vimux",
+	"Pocco81/auto-save.nvim",
+	"jiangmiao/auto-pairs",
 
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+	"hrsh7th/cmp-copilot",
+	"github/copilot.vim",
+
+	"benmills/vimux",
 	"tpope/vim-sensible",
 	"tpope/vim-eunuch",
 	"tpope/vim-surround",
@@ -175,8 +181,6 @@ vim.api.nvim_set_keymap("n", "<leader>gd", ":Rg <C-r><C-w><cr>", {})
 vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Buffers<cr>", {})
 vim.api.nvim_set_keymap("n", "<leader>B", "<cmd>BTags<cr>", {})
 
-
-
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { silent = true })
 
 vim.api.nvim_set_keymap("n", "<leader>ge", "<cmd>vs ~/.config/nvim/init.lua<CR>", {})
@@ -200,6 +204,43 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+	-- Mappings.
+	local map_opts = { noremap = true, silent = true }
+
+	vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<C-m>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", map_opts)
+	vim.api.nvim_set_keymap(
+		"n",
+		"<space>wl",
+		"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+		map_opts
+	)
+	vim.api.nvim_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "L", "<cmd>lua vim.lsp.buf.code_action()<CR>", map_opts)
+	vim.api.nvim_set_keymap("v", "<C-w>", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", map_opts)
+	vim.api.nvim_set_keymap("v", "L", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", map_opts)
+	vim.api.nvim_set_keymap("v", "<C-w>", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.diagnostic.goto_prev()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "]e", "<cmd>lua vim.diagnostic.goto_next()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", map_opts)
+	vim.api.nvim_set_keymap("n", "-", "<cmd>lua vim.lsp.buf.format()<cr>", map_opts)
+	vim.api.nvim_set_keymap("v", "-", "<cmd>lua vim.lsp.buf.format()<cr>", map_opts)
+
+
+
+
 local lsp = require("lsp-zero").preset({})
 
 lsp.on_attach(function(_, bufnr)
@@ -216,6 +257,80 @@ lsp.setup()
 
 require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls", "tsserver", "rust_analyzer", "pylsp" },
+})
+
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+
+local has_words_before = function()
+	local cursor = vim.api.nvim_win_get_cursor(0)
+	return (vim.api.nvim_buf_get_lines(0, cursor[1] - 1, cursor[1], true)[1] or "")
+		:sub(cursor[2], cursor[2])
+		:match("%s")
+end
+
+cmp.setup({
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lua" },
+		{ name = "copilot" },
+		{ name = "luasnip" },
+		{ name = "path" },
+	}, {
+		{ name = "buffer", keyword_length = 3 },
+	}),
+
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		-- Accept currently selected item. Set `select` to `false` to only
+		-- confirm explicitly selected items.
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-j>"] = cmp.mapping.confirm({ select = true }),
+		["<C-l>"] = cmp.mapping.confirm({ select = true }),
+
+		["<C-p>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item(cmp_select_opts)
+			else
+				cmp.complete()
+			end
+		end),
+		["<C-n>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_next_item(cmp_select_opts)
+			else
+				cmp.complete()
+			end
+		end),
+
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+			-- they way you will only jump inside the snippet region
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	}),
 })
 
 -- require('typescript').setup({
