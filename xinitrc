@@ -46,8 +46,7 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # Background
-# sh ~/.fehbg &
-# sh ~/.dotfiles/nuf_status.sh &
+#sh ~/.dotfiles/nuf_status.sh &
 
 # while :; do
 #   "$HOME/dwm/dwm"
@@ -66,3 +65,8 @@ exec i3
 # exec i3
 # exec herbstluftwm --locked
 # xrandr --output VGA-1 --auto --right-of HDMI-2
+
+# ~/.fehbg &
+# ~/.config/eww/launch.sh &
+# exec --no-startup-id stalonetray --geometry 1x1-10+10 --config ~/.stalonetrayrc
+

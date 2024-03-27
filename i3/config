@@ -37,27 +37,54 @@ bindsym $mod+Return exec kitty tmux
 bindsym $mod+Shift+q kill
 bindsym $mod+grave exec ~/.dotfiles/bin/dmenuunicode
 
+#CatppcinFrappcino
+set $rosewater #f2d5cf
+set $flamingo  #eebebe
+set $pink      #f4b8e4
+set $mauve     #ca9ee6
+set $red       #e78284
+set $maroon    #ea999c
+set $peach     #ef9f76
+set $green     #a6d189
+set $teal      #81c8be
+set $sky       #99d1db
+set $sapphire  #85c1dc
+set $blue      #8caaee
+set $lavender  #babbf1
+set $text      #c6d0f5
+set $subtext1  #b5bfe2
+set $subtext0  #a5adce
+set $overlay2  #949cbb
+set $overlay1  #838ba7
+set $overlay0  #737994
+set $surface2  #626880
+set $surface1  #51576d
+set $surface0  #414559
+set $base      #303446
+set $mantle    #292c3c
+set $crust     #232634
+
 ## Base16 Nord
 # Author: arcticicestudio
 #
 # You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #2e3440
-set $base01 #3b4252
-set $base02 #434c5e
-set $base03 #4c566a
-set $base04 #d8dee9
-set $base05 #e5e9f0
-set $base06 #eceff4
-set $base07 #8fbcbb
-set $base08 #bf616a
-set $base09 #d08770
-set $base0A #ebcb8b
-set $base0B #a3be8c
-set $base0C #88c0d0
-set $base0D #81a1c1
-set $base0E #b48ead
-set $base0F #5e81ac
+#
+# set $base00 #2e3440
+# set $base01 #3b4252
+# set $base02 #434c5e
+# set $base03 #4c566a
+# set $base04 #d8dee9
+# set $base05 #e5e9f0
+# set $base06 #eceff4
+# set $base07 #8fbcbb
+# set $base08 #bf616a
+# set $base09 #d08770
+# set $base0A #ebcb8b
+# set $base0B #a3be8c
+# set $base0C #88c0d0
+# set $base0D #81a1c1
+# set $base0E #b48ead
+# set $base0F #5e81ac
 
 # Zenburn
 # set $base00 #383838
@@ -78,22 +105,28 @@ set $base0F #5e81ac
 # set $base0F #000000
 #
 # Basic bar configuration using the Base16 variables.
-# bar {
-#     status_command i3status
-#
-#     colors {
-#         background $base00
-#         separator  $base01
-#         statusline $base04
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $base05 $base0D $base00
-#         active_workspace    $base05 $base03 $base00
-#         inactive_workspace  $base03 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base00 $base0A $base00
-#     }
-# }
+bar {
+    mode dock
+    position bottom
+    status_command i3status -c /home/$USER/.config/i3status/i3status.conf
+    colors {
+        background $base
+        statusline $text
+        separator $overlay0
+
+        # Workspace colors
+        focused_workspace $green $green $base
+        active_workspace $sky $sky $base
+        inactive_workspace $overlay2 $overlay2 $base
+        urgent_workspace $red $red $base
+
+        # System tray colors
+        background $base
+        statusline $text
+        separator $overlay0
+    }
+}
+
 #
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -123,6 +156,8 @@ for_window [title="Godot Engine*."] floating enable
 for_window [title="BITGUN*."] floating enable
 for_window [title="Fast Image Browser"] floating enable
 for_window [title="FLOAT"] floating enable
+for_window [title=".*(Comfy Engine DEV BUILD).*"] floating enable
+
 
 # change focus
 bindsym $mod+j focus down
@@ -181,11 +216,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws1 "1:   Kitty"
+set $ws2 "2:   Chrome"
+set $ws3 "3:   Social "
+set $ws4 "4:   IDE"
+set $ws5 "5:   Thunar" 
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -260,6 +295,13 @@ bindsym $mod+r mode "resize"
 # I3 GAPS:
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 2
+# Allocate applications to workspaces
+for_window [class="chromium"] move to workspace $ws2
+for_window [class="kitty"] move to workspace $ws1
+for_window [class="signal"] move to workspace $ws3
+for_window [class="discord"] move to workspace $ws3
+for_window [class="code"] move to workspace $ws4
+for_window [class="Thunar"] move to workspace $ws4
 
 # Set inner/outer gaps
 gaps inner 10
@@ -316,20 +358,31 @@ mode "$mode_gaps_outer" {
 }
 
 # exec_always ~/.config/polybar/launch.sh --forest
-exec_always ~/.dotfiles/polybar_launch.sh
+# exec_always ~/.dotfiles/polybar_launch.sh
 
-exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
+# exec_always ~/Programming/feh-blur -b 4 --darken 4 --no-animate
 # exec_always feh --bg-fill ~/.dotfiles/polybar-themes/wallpapers/bg_3.jpg
-exec_always ~/.config/fehbg
+# exec_always ~/.config/fehbg
 
 # exec_always compton -f
 # exec_always xrandr --output eDP1 --mode 1680x1050
-exec_always xrandr \
-  --output HDMI-0 --mode 1920x1200 --pos 0x0 --rotate normal \
-  --output DP-0 --primary --mode 2560x1440 --pos 1920x0 --rotate normal \
+# exec_always xrandr \
+#  --output HDMI-0 --mode 1920x1200 --pos 0x0 --rotate normal \
+#  --output DP-0 --primary --mode 2560x1440 --pos 1920x0 --rotate normal \
 
   # --output DP-1 --off \
   # --output DP-2 --off \
   # --output DP-3 --off \
 # exec xrandr --output eDP1 --mode 1680x1050
 # exec sudo wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+exec_always picom
+# exec ~/.fehbg
+exec_always --no-startup-id ~/.fehbg
+# exec_always --no-startup-id stalonetray -bg '#'3034_always46 --geometry 1x1-10+100 --config ~/.stalonetrayrc
+exec --no-startup-id ~/.config/eww/launch.sh
+# exec --no-startup-id eww daemon
+# exec_always --no-startup-id eww open mybar
+
+
+

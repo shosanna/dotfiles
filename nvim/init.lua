@@ -66,7 +66,8 @@ vim.g.VimuxOrientation = "h"
 require("lazy").setup({
 	"folke/which-key.nvim",
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
-	{ "rose-pine/neovim", name = "rose-pine" },
+	-- { "rose-pine/neovim", name = "rose-pine" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "preservim/nerdtree" },
 	{ "terrortylor/nvim-comment" },
 	"sbdchd/neoformat",
@@ -128,19 +129,21 @@ require("neodev").setup({})
 require("neoconf").setup({})
 require("which-key").setup({})
 require("nvim_comment").setup()
-require("rose-pine").setup({
-	disable_background = true,
-})
+-- require("rose-pine").setup({
+-- 	disable_background = true,
+-- })
 
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
+-- function ColorMyPencils(color)
+-- 	color = color or "rose-pine"
+-- 	vim.cmd.colorscheme(color)
+--
+-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- end
+--
+-- ColorMyPencils()
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
-ColorMyPencils()
+vim.cmd.colorscheme "catppuccin"
 
 vim.g.neoformat_only_msg_on_error = 1
 

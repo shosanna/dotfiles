@@ -1,11 +1,6 @@
 # vim: set ft=zsh
 # zmodload zsh/zprof
 
-#export http_proxy=webproxy.merck.com:8080
-#export HTTP_PROXY=webproxy.merck.com:8080
-#export https_proxy=webproxy.merck.com:8080
-#export HTTPS_PROXY=webproxy.merck.com:8080
-
 export http_proxy=
 export HTTP_PROXY=
 export https_proxy=
@@ -142,7 +137,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$HOME/.cargo/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"

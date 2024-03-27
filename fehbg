@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/shosanna/Documents/wallpapers/1.jpg' 
+feh --no-fehbg --bg-fill '/usr/share/backgrounds/cat-forest.png' 
